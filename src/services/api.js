@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const API_BASE_URL = "http://localhost:8000/api";
-export const IMAGE_PATH = "http://localhost:8000/uploads";
+export const API_BASE_URL = "https://masma-back.demovoting.com/api";
+export const IMAGE_PATH = "https://masma-back.demovoting.com/uploads";
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
