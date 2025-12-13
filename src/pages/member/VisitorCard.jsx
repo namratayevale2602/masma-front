@@ -159,7 +159,7 @@ const VisitorCard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-purple-50 to-blue-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading visitor information...</p>
@@ -171,7 +171,7 @@ const VisitorCard = () => {
 
   if (error || !visitor) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-purple-50 to-blue-50 flex items-center justify-center p-4">
         <NetworkStatus />
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
           <div className="text-red-500 text-6xl mb-6">
@@ -199,7 +199,7 @@ const VisitorCard = () => {
           <div className="space-y-3">
             <button
               onClick={() => navigate(-1)}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center"
+              className="w-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center"
             >
               <FaArrowLeft className="mr-2" />
               Go Back
@@ -218,7 +218,7 @@ const VisitorCard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4 md:p-8">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 to-blue-50 p-4 md:p-8">
       <NetworkStatus />
 
       {/* Network Info Banner */}
@@ -284,7 +284,7 @@ const VisitorCard = () => {
         {/* Main Card */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-8">
           {/* Card Header */}
-          <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-8 md:p-10 text-white">
+          <div className="relative bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 p-8 md:p-10 text-white">
             <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
               <FaIdCard size={24} />
             </div>
@@ -428,7 +428,7 @@ const VisitorCard = () => {
 
             {/* QR Code Section */}
             <div className="mt-8 pt-8 border-t border-gray-200">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6">
+              <div className="bg-linear-to-r from-blue-50 to-purple-50 rounded-2xl p-6">
                 <div className="flex flex-col md:flex-row items-center">
                   <div className="mb-6 md:mb-0 md:mr-8 text-center">
                     <div className="relative inline-block">
@@ -482,7 +482,7 @@ const VisitorCard = () => {
                       <div className="flex space-x-3">
                         <button
                           onClick={() => window.print()}
-                          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center"
+                          className="flex-1 bg-linear-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center"
                         >
                           <FaPrint className="mr-2" />
                           Print

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axiosInstance from "../../services/api";
+import QRCode from "qrcode";
 
 const Visitors = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +19,11 @@ const Visitors = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
-  const [qrCode, setQrCode] = useState(null);
+  const [qrCodeDataUrl, setQrCodeDataUrl] = useState(null);
   const [emailStatus, setEmailStatus] = useState(null);
+  const [visitorId, setVisitorId] = useState(null);
+
+  const qrCodeDataRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +31,7 @@ const Visitors = () => {
       ...prev,
       [name]: value,
     }));
-    // Clear field-specific error when user types
+
     if (error && error[name]) {
       setError((prev) => {
         const newErrors = { ...prev };
@@ -37,69 +41,117 @@ const Visitors = () => {
     }
   };
 
+  // Function to generate QR code on frontend
+  const generateQRCode = async (data) => {
+    try {
+      // Create the URL for the visitor card
+      const cardUrl = `${window.location.origin}/visitor/${data.id}/card`;
+
+      // Generate QR code as Data URL
+      const qrCodeUrl = await QRCode.toDataURL(cardUrl, {
+        width: 300,
+        margin: 2,
+        color: {
+          dark: "#000000",
+          light: "#FFFFFF",
+        },
+      });
+
+      return qrCodeUrl;
+    } catch (err) {
+      console.error("QR generation error:", err);
+      throw err;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setSuccess(false);
-    setQrCode(null);
+    setQrCodeDataUrl(null);
     setEmailStatus(null);
+    setVisitorId(null);
 
     try {
+      // Step 1: First create the visitor in backend
       const response = await axiosInstance.post("/visitors", formData);
 
-      console.log("API Response:", response.data); // Debug log
+      console.log("Step 1 - Visitor Created:", response.data);
 
       if (response.data.success) {
-        setSuccess(true);
+        const visitor = response.data.visitor;
+        const visitorId = visitor.id;
+        setVisitorId(visitorId);
 
-        // Get web URL for scanning
-        const webUrl =
-          response.data.qr_code?.web_url ||
-          `${window.location.origin}/visitor/${response.data.visitor?.id}/card`;
-
-        // Check if qr_code exists in response
-        if (response.data.qr_code) {
-          setQrCode({
-            url: response.data.qr_code.url,
-            downloadUrl: response.data.qr_code.download_url,
-            webUrl: webUrl, // Add web URL for scanning
-            scanUrl: `${window.location.origin}/visitor/${response.data.visitor?.id}/card`,
-          });
-        }
-
-        // Set email status (default to 'not_sent' if not present)
-        setEmailStatus(response.data.email_status || "not_sent");
-
-        // Reset form
-        setFormData({
-          visitor_name: "",
-          bussiness_name: "",
-          mobile: "",
-          phone: "",
-          whatsapp_no: "",
-          email: "",
-          city: "",
-          town: "",
-          village: "",
-          remark: "",
+        // Step 2: Generate QR code on frontend
+        console.log("Step 2 - Generating QR code...");
+        const qrCodeUrl = await generateQRCode({
+          id: visitorId,
+          ...formData,
         });
 
-        // Auto-hide success message after 15 seconds
-        setTimeout(() => {
-          setSuccess(false);
-          setQrCode(null);
-          setEmailStatus(null);
-        }, 15000);
+        setQrCodeDataUrl(qrCodeUrl);
+        qrCodeDataRef.current = qrCodeUrl;
+
+        // Step 3: Send QR code to backend for storage and email
+        console.log("Step 3 - Sending QR code to backend...");
+
+        // Extract base64 data from data URL
+        const base64Data = qrCodeUrl.split(",")[1];
+
+        const qrResponse = await axiosInstance.post("/visitors/qrcode", {
+          visitor_id: visitorId,
+          qr_code_data: base64Data,
+          qr_code_metadata: {
+            name: formData.visitor_name,
+            email: formData.email,
+            mobile: formData.mobile,
+            business: formData.bussiness_name || "N/A",
+            generated_at: new Date().toISOString(),
+            frontend_generated: true,
+          },
+        });
+
+        console.log("Step 3 - QR Code Response:", qrResponse.data);
+
+        if (qrResponse.data.success) {
+          setSuccess(true);
+          setEmailStatus(qrResponse.data.email_status || "sent");
+
+          // Reset form
+          setFormData({
+            visitor_name: "",
+            bussiness_name: "",
+            mobile: "",
+            phone: "",
+            whatsapp_no: "",
+            email: "",
+            city: "",
+            town: "",
+            village: "",
+            remark: "",
+          });
+
+          // Auto-hide after 15 seconds
+          setTimeout(() => {
+            setSuccess(false);
+            setQrCodeDataUrl(null);
+            setEmailStatus(null);
+          }, 15000);
+        } else {
+          setError({
+            general: [qrResponse.data.message || "QR code processing failed"],
+          });
+        }
       } else {
         setError({ general: [response.data.message || "Registration failed"] });
       }
     } catch (err) {
-      console.error("API Error:", err.response || err); // Debug log
+      console.error("API Error:", err.response || err);
 
       if (err.response && err.response.data) {
         const data = err.response.data;
-
         if (data.errors) {
           setError(data.errors);
         } else if (data.message) {
@@ -117,12 +169,40 @@ const Visitors = () => {
     }
   };
 
+  // Function to download QR code
+  const downloadQRCode = () => {
+    if (!qrCodeDataUrl) return;
+
+    const link = document.createElement("a");
+    link.href = qrCodeDataUrl;
+    link.download = `visitor-${visitorId}-qrcode.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Function to copy QR code URL
+  const copyQRCodeUrl = () => {
+    if (!visitorId) return;
+
+    const cardUrl = `${window.location.origin}/visitor/${visitorId}/card`;
+    navigator.clipboard
+      .writeText(cardUrl)
+      .then(() => {
+        alert("Card URL copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md pt-40">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">
         Visitor Registration Form
       </h2>
 
+      {/* Success Message */}
       {success && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
           <div className="flex items-center">
@@ -143,44 +223,60 @@ const Visitors = () => {
                 ? "QR code has been generated and sent to your email."
                 : emailStatus === "failed"
                 ? "Registration successful but email notification failed."
-                : "Registration successful. QR code generation skipped."}
+                : "Registration successful."}
             </span>
           </div>
 
-          {qrCode && qrCode.url && (
+          {qrCodeDataUrl && visitorId && (
             <div className="mt-4 p-4 bg-green-100 rounded">
               <p className="text-green-800 mb-2">
                 Your QR code is ready. You can download it directly:
               </p>
               <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
                 <div className="text-center">
-                  <img
-                    src={qrCode.url}
-                    alt="Visitor QR Code"
-                    className="w-32 h-32 mx-auto border border-gray-300 rounded"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src =
-                        "https://via.placeholder.com/300x300?text=QR+Code";
-                    }}
-                  />
-                  <p className="text-sm text-gray-600 mt-2">Your QR Code</p>
+                  <div className="w-48 h-48 mx-auto border border-gray-300 rounded flex items-center justify-center bg-white p-2">
+                    <img
+                      src={qrCodeDataUrl}
+                      alt="Visitor QR Code"
+                      className="max-w-full max-h-full"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Scan to view visitor card
+                  </p>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  {qrCode.downloadUrl && (
-                    <a
-                      href={qrCode.downloadUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-center"
-                    >
-                      Download QR Code
-                    </a>
-                  )}
+                  <button
+                    onClick={downloadQRCode}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-center"
+                  >
+                    <i className="fas fa-download mr-2"></i>
+                    Download QR Code
+                  </button>
+
+                  <button
+                    onClick={copyQRCodeUrl}
+                    className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-center"
+                  >
+                    <i className="fas fa-copy mr-2"></i>
+                    Copy Card URL
+                  </button>
+
+                  <a
+                    href={`/visitor/${visitorId}/card`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-center"
+                  >
+                    <i className="fas fa-eye mr-2"></i>
+                    View ID Card
+                  </a>
+
                   <button
                     onClick={() => window.print()}
                     className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
                   >
+                    <i className="fas fa-print mr-2"></i>
                     Print QR Code
                   </button>
                 </div>
@@ -190,6 +286,7 @@ const Visitors = () => {
         </div>
       )}
 
+      {/* Error Message */}
       {error && error.general && (
         <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
           <div className="flex items-center">
@@ -209,6 +306,7 @@ const Visitors = () => {
         </div>
       )}
 
+      {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -416,116 +514,8 @@ const Visitors = () => {
               "Register & Generate QR Code"
             )}
           </button>
-
-          <p className="text-sm text-gray-500 mt-3 text-center">
-            By submitting this form, you agree to receive your QR code via
-            email. All information is kept confidential.
-          </p>
         </div>
       </form>
-
-      {success && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-          <div className="flex items-center">
-            <svg
-              className="w-5 h-5 text-green-500 mr-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-green-700 font-medium">
-              Registration successful!{" "}
-              {emailStatus === "sent"
-                ? "QR code has been generated and sent to your email."
-                : emailStatus === "failed"
-                ? "Registration successful but email notification failed."
-                : "Registration successful."}
-            </span>
-          </div>
-
-          {qrCode && qrCode.url && (
-            <div className="mt-4 p-4 bg-green-100 rounded">
-              <p className="text-green-800 mb-2">
-                Your QR code is ready. You can download it directly:
-              </p>
-              <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto border border-gray-300 rounded flex items-center justify-center bg-white p-2">
-                    <img
-                      src={qrCode.url}
-                      alt="Visitor QR Code"
-                      className="max-w-full max-h-full"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src =
-                          "https://via.placeholder.com/300x300?text=QR+Code";
-                      }}
-                    />
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2">Your QR Code</p>
-                </div>
-                <div className="flex flex-col space-y-2">
-                  {qrCode.downloadUrl && (
-                    <a
-                      href={qrCode.downloadUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-center"
-                    >
-                      <i className="fas fa-download mr-2"></i>
-                      Download QR Code
-                    </a>
-                  )}
-                  {qrCode.scanUrl && (
-                    <a
-                      href={qrCode.scanUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-center"
-                    >
-                      <i className="fas fa-eye mr-2"></i>
-                      View ID Card
-                    </a>
-                  )}
-                  <button
-                    onClick={() => window.print()}
-                    className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
-                  >
-                    <i className="fas fa-print mr-2"></i>
-                    Print QR Code
-                  </button>
-                </div>
-              </div>
-
-              {/* Scan Information */}
-              <div className="mt-4 p-3 bg-blue-50 rounded">
-                <p className="text-blue-800 text-sm">
-                  <i className="fas fa-info-circle mr-2"></i>
-                  When scanned, this QR code will display your visitor ID card
-                  with all your details.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Additional Info */}
-      <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-        <h3 className="font-medium text-gray-700 mb-2">What happens next?</h3>
-        <ul className="list-disc pl-5 text-gray-600 space-y-1">
-          <li>Your information will be securely stored in our database</li>
-          <li>A unique QR code will be generated for you</li>
-          <li>The QR code will be sent to your email address</li>
-          <li>You can use the QR code for check-in and verification</li>
-          <li>You can also download the QR code from the success message</li>
-        </ul>
-      </div>
     </div>
   );
 };
