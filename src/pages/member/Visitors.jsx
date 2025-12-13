@@ -203,86 +203,93 @@ const Visitors = () => {
       </h2>
 
       {/* Success Message */}
-      {success && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-          <div className="flex items-center">
-            <svg
-              className="w-5 h-5 text-green-500 mr-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-green-700 font-medium">
-              Registration successful!{" "}
-              {emailStatus === "sent"
-                ? "QR code has been generated and sent to your email."
-                : emailStatus === "failed"
-                ? "Registration successful but email notification failed."
-                : "Registration successful."}
-            </span>
+      {success && qrCodeDataUrl && visitorId && (
+        <div className="mt-4 p-4 bg-green-100 rounded">
+          <p className="text-green-800 mb-2">
+            Your ID card is ready. You can download it in different formats:
+          </p>
+          <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
+            <div className="text-center">
+              <div className="w-48 h-48 mx-auto border border-gray-300 rounded flex items-center justify-center bg-white p-2">
+                <img
+                  src={qrCodeDataUrl}
+                  alt="Visitor QR Code"
+                  className="max-w-full max-h-full"
+                />
+              </div>
+              <p className="text-sm text-gray-600 mt-2">
+                Scan to view visitor card
+              </p>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <button
+                onClick={downloadQRCode}
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-center"
+              >
+                <i className="fas fa-qrcode mr-2"></i>
+                Download QR Code Only
+              </button>
+
+              <a
+                href={`${axiosInstance.defaults.baseURL}/visitors/${visitorId}/idcard/download`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-center"
+              >
+                <i className="fas fa-id-card mr-2"></i>
+                Download ID Card (PDF)
+              </a>
+
+              <a
+                href={`${axiosInstance.defaults.baseURL}/visitors/${visitorId}/idcard/view`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-center"
+              >
+                <i className="fas fa-eye mr-2"></i>
+                View ID Card (PDF)
+              </a>
+
+              <a
+                href={`/visitor/${visitorId}/card`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition text-center"
+              >
+                <i className="fas fa-external-link-alt mr-2"></i>
+                View Digital Card
+              </a>
+
+              <button
+                onClick={() => window.print()}
+                className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
+              >
+                <i className="fas fa-print mr-2"></i>
+                Print ID Card
+              </button>
+            </div>
           </div>
 
-          {qrCodeDataUrl && visitorId && (
-            <div className="mt-4 p-4 bg-green-100 rounded">
-              <p className="text-green-800 mb-2">
-                Your QR code is ready. You can download it directly:
-              </p>
-              <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
-                <div className="text-center">
-                  <div className="w-48 h-48 mx-auto border border-gray-300 rounded flex items-center justify-center bg-white p-2">
-                    <img
-                      src={qrCodeDataUrl}
-                      alt="Visitor QR Code"
-                      className="max-w-full max-h-full"
-                    />
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Scan to view visitor card
-                  </p>
-                </div>
-                <div className="flex flex-col space-y-2">
-                  <button
-                    onClick={downloadQRCode}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-center"
-                  >
-                    <i className="fas fa-download mr-2"></i>
-                    Download QR Code
-                  </button>
-
-                  <button
-                    onClick={copyQRCodeUrl}
-                    className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-center"
-                  >
-                    <i className="fas fa-copy mr-2"></i>
-                    Copy Card URL
-                  </button>
-
-                  <a
-                    href={`/visitor/${visitorId}/card`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-center"
-                  >
-                    <i className="fas fa-eye mr-2"></i>
-                    View ID Card
-                  </a>
-
-                  <button
-                    onClick={() => window.print()}
-                    className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
-                  >
-                    <i className="fas fa-print mr-2"></i>
-                    Print QR Code
-                  </button>
-                </div>
+          {/* Preview of ID Card Design */}
+          <div className="mt-6 p-4 bg-linear-to-r from-blue-500 to-purple-600 rounded-lg text-white max-w-md mx-auto">
+            <div className="text-center mb-4">
+              <h3 className="text-xl font-bold">ID Card Preview</h3>
+              <p className="text-sm opacity-90">Standard Business Card Size</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="w-24 h-24 bg-white rounded p-1">
+                <img src={qrCodeDataUrl} alt="QR" className="w-full h-full" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-lg">{formData.visitor_name}</h4>
+                <p className="text-sm mt-1">📱 {formData.mobile}</p>
+                <p className="text-sm">✉️ {formData.email}</p>
+                {formData.bussiness_name && (
+                  <p className="text-sm">🏢 {formData.bussiness_name}</p>
+                )}
               </div>
             </div>
-          )}
+          </div>
         </div>
       )}
 
