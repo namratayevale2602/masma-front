@@ -86,8 +86,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-              Harness the Power of{" "}
-              <span className="text-[#ed6605]">Solar Energy</span>
+              We Build <span className="text-[#ed6605]">Your Dreams</span>
             </h1>
 
             <motion.p
@@ -96,8 +95,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Go green and save money with our premium solar solutions.
-              Sustainable energy for a brighter future.
+              Technical support, Policy & regulation support, Promotion of
+              trade.
             </motion.p>
 
             <motion.div

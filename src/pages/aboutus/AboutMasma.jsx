@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { FaArrowRight } from "react-icons/fa";
 import founder from "../../assets/image/founder.jpg";
 import OurObjective from "./OurObjective";
+import AmitKulkarni from "../../assets/directors/amit-kulkarni.jpeg";
 
 const AboutMasma = () => {
   const [ref, inView] = useInView({
@@ -23,7 +24,7 @@ const AboutMasma = () => {
           >
             <div className="relative">
               <img
-                src={founder}
+                src={AmitKulkarni}
                 alt="MASMA Association"
                 className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] object-cover rounded-2xl"
               />
@@ -36,7 +37,7 @@ const AboutMasma = () => {
             <div className="absolute -bottom-4 left-0 right-0 mx-auto lg:mx-0 lg:-bottom-6 lg:right-0 lg:left-auto bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 max-w-[280px] lg:max-w-none">
               <div className="text-center">
                 <div className="text-lg sm:text-xl lg:text-2xl font-bold text-[#005aa8] leading-tight">
-                  Mr. Shashikant Wakade
+                  Mr. Amit Kulkarni
                 </div>
                 <div className="text-sm sm:text-base lg:text-lg font-semibold text-[#ed6605] mt-1">
                   President
