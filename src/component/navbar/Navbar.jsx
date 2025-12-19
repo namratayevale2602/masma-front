@@ -68,7 +68,7 @@ const Navbar = () => {
       dropdown: [
         { name: "Be a Member", icon: <FaCog />, href: "/bemember" },
         { name: "Membership Plan", icon: <FaTools />, href: "/membership" },
-        { name: "Visitors", icon: <FaCog />, href: "/visitors" },
+        // { name: "Visitors", icon: <FaCog />, href: "/visitors" },
       ],
     },
     {
@@ -76,9 +76,10 @@ const Navbar = () => {
       icon: <FaImage />,
       href: "#aboutus",
       dropdown: [
-        { name: "Events", icon: <FaCog />, href: "/events" },
-        { name: "News", icon: <FaTools />, href: "/news" },
-        { name: "Videos", icon: <FaTools />, href: "/videos" },
+        { name: "Events", icon: <FaImage />, href: "/events" },
+        { name: "Gallary", icon: <FaImage />, href: "/gallary" },
+        { name: "News", icon: <FaImage />, href: "/news" },
+        { name: "Videos", icon: <FaImage />, href: "/videos" },
       ],
     },
     {

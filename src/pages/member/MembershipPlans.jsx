@@ -33,7 +33,7 @@ import membershipData from "../../data/membershipData.json";
 
 const MembershipPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState("table");
   const [expandedFeature, setExpandedFeature] = useState(null);
 
   const getPlanIcon = (planName) => {
@@ -141,50 +141,15 @@ const MembershipPlans = () => {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center justify-center mb-4">
-            <div className="w-12 h-1 bg-[#005aa8] mr-4"></div>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
               MASMA Membership
             </h1>
-            <div className="w-12 h-1 bg-[#ed6605] ml-4"></div>
           </div>
-          <h2
-            className="text-2xl md:text-3xl font-bold mb-4"
-            style={{ color: "#005aa8" }}
-          >
-            Plan for 2023-24
-          </h2>
+
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Choose the membership plan that best fits your needs and take your
             business to the next level
           </p>
-
-          {/* View Mode Toggle */}
-          <div className="inline-flex bg-white rounded-full p-1 shadow-md mb-8">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setViewMode("grid")}
-              className={`flex items-center px-6 py-2 rounded-full font-medium transition-all ${
-                viewMode === "grid"
-                  ? "bg-linear-to-r from-[#005aa8] to-[#004080] text-white"
-                  : "text-gray-600 hover:text-[#005aa8]"
-              }`}
-            >
-              <FaUsers className="mr-2" />
-              Grid View
-            </motion.button>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setViewMode("table")}
-              className={`flex items-center px-6 py-2 rounded-full font-medium transition-all ${
-                viewMode === "table"
-                  ? "bg-linear-to-r from-[#005aa8] to-[#004080] text-white"
-                  : "text-gray-600 hover:text-[#005aa8]"
-              }`}
-            >
-              <FaBuilding className="mr-2" />
-              Table View
-            </motion.button>
-          </div>
         </motion.div>
 
         {/* Grid View */}
@@ -537,72 +502,6 @@ const MembershipPlans = () => {
             </div>
           </motion.div>
         )}
-
-        {/* Contact Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="mt-12 bg-white rounded-2xl shadow-lg overflow-hidden"
-        >
-          <div className="p-8 md:p-10">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-8 md:mb-0 md:mr-8">
-                <div className="flex items-center mb-3">
-                  <div className="w-8 h-1 bg-[#005aa8] mr-3"></div>
-                  <h3
-                    className="text-2xl font-bold"
-                    style={{ color: "#005aa8" }}
-                  >
-                    Ready to Join MASMA?
-                  </h3>
-                  <div className="w-8 h-1 bg-[#ed6605] ml-3"></div>
-                </div>
-                <p className="text-gray-600 mb-4 max-w-md">
-                  Become part of India's leading business community and unlock
-                  exclusive benefits for your growth.
-                </p>
-                <div className="flex items-center text-gray-500 text-sm">
-                  <FaCalendarAlt className="mr-2" />
-                  <span>Membership valid for Economic Year 2023-24</span>
-                </div>
-              </div>
-
-              <div className="text-center md:text-right">
-                <div className="mb-6">
-                  <a
-                    href="mailto:info@masma.in"
-                    className="group flex items-center justify-center md:justify-end text-lg font-bold mb-2 hover:text-[#ed6605] transition-colors"
-                    style={{ color: "#005aa8" }}
-                  >
-                    <FaEnvelope className="mr-2 group-hover:scale-110 transition-transform" />
-                    info@masma.in
-                  </a>
-                  <a
-                    href="https://www.masma.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-center md:justify-end text-lg font-medium hover:text-[#005aa8] transition-colors"
-                    style={{ color: "#ed6605" }}
-                  >
-                    <FaGlobe className="mr-2 group-hover:scale-110 transition-transform" />
-                    www.masma.in
-                  </a>
-                </div>
-                <div
-                  className="text-sm font-bold tracking-wider uppercase border-t pt-4 flex items-center justify-center md:justify-end"
-                  style={{ color: "#005aa8" }}
-                >
-                  <FaHandshake className="mr-2" />
-                  Only Business, Nothing Else...
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* linear Border Bottom */}
-          <div className="h-2 bg-linear-to-r from-[#005aa8] via-[#ed6605] to-[#005aa8]"></div>
-        </motion.div>
 
         {/* Selected Plan Modal */}
         <AnimatePresence>

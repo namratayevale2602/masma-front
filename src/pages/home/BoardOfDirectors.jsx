@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import AmitKulkarni from "../../assets/directors/amit-kulkarni.jpeg";
-import PradipKhade from "../../assets/directors/pradip-khade.jpeg";
-import SahajMuta from "../../assets/directors/sahaj-mutha.jpeg";
-import ChinmayKulkani from "../../assets/directors/chinmay-kulkarni.jpeg";
-import ShashikantWakde from "../../assets/directors/shashikant-vakde.jpeg";
-import ManishaBirbind from "../../assets/directors/manisha-birbind.jpeg";
-import BharteshDhooli from "../../assets/directors/bhartesh-dhooli.jpeg";
+import {
+  AmitKulkarni,
+  PradipKhade,
+  SahajMuta,
+  ChinmayKulkani,
+  ShashikantWakde,
+  ManishaBirbind,
+  BharteshDhooli,
+} from "../../assets/index";
 
 const BoardOfDirectors = () => {
   const [ref, inView] = useInView({

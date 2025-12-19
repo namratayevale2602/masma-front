@@ -8,12 +8,23 @@ import {
   FaUserGraduate,
 } from "react-icons/fa";
 
-import noimg from "../../assets/religional/noimg.png";
-import atul from "../../assets/religional/Atul-Honole.jpg";
-import manisha from "../../assets/religional/Manisha-Barbind.jpg";
-import narendra from "../../assets/religional/Narendra-Pawar.jpg";
-import vijay from "../../assets/religional/Vijay-Wani.jpg";
-import vinod from "../../assets/religional/Vinod-Suryavanshi.jpg";
+import {
+  AbhijitVichare,
+  ArunSingavi,
+  OmkarKorgaokkar,
+  SubhashChandane,
+  SushilPetkar,
+  GajananChinkar,
+  GauravKulkarni,
+  SwpnilVernekar,
+  ShashikantJamdar,
+  SandipDesale,
+  GauravKapadnis,
+  RajendraPanchal,
+  GaneshSutar,
+  DhanajiraoEkal,
+  Dhairyashiljadhav,
+} from "../../assets/index";
 
 const ReligionalChap = () => {
   const [ref, inView] = useInView({
@@ -24,111 +35,105 @@ const ReligionalChap = () => {
   const teamCategories = [
     {
       id: 1,
-      title: "West Maharastra",
+      title: "Regional Director",
       icon: <FaUserTie className="text-2xl" />,
       members: [
         {
-          name: "Mr. Vinod Suryavanshi",
-          position: "",
-          image: vinod,
+          name: "Mr. Abhijit Vichare",
+          city: "Kolhapur",
+          position: "West Maharastra",
+          image: AbhijitVichare,
         },
-        {
-          name: "Mr. Pradeep Khade",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Atul Honole",
-          position: "",
-          image: atul,
-        },
-        {
-          name: "Ms. Vaibhavi Vivek Kop",
-          position: "",
-          image: noimg,
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "North Maharasta",
-      icon: <FaUserShield className="text-2xl" />,
-      members: [
         {
           name: "Mr. Arun Singavi",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Vijay Patil",
-          position: "",
-          image: noimg,
+          city: "Nashik",
+          position: "North Maharastra",
+          image: ArunSingavi,
         },
       ],
     },
     {
       id: 3,
-      title: "Mumbai",
+      title: "District Director",
       icon: <FaCrown className="text-2xl" />,
       members: [
         {
-          name: "Mr. Jagadish Hadap",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Vijay Vani",
-          position: "",
-          image: vijay,
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Pune",
-      icon: <FaUsers className="text-2xl" />,
-      members: [
-        {
-          name: "Mr. Rajendra Panchal",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Akshay Panchal",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Ashish Mule",
-          position: "",
-          image: noimg,
-        },
-        {
-          name: "Mr. Narendra Pawar",
-          position: "",
-          image: narendra,
-        },
-        {
-          name: "Mr. Sahaj Mutha",
-          position: "",
-          image: noimg,
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Maharastra",
-      icon: <FaUserGraduate className="text-2xl" />,
-      members: [
-        {
-          name: "Ms. Manisha Barbind",
-          position: "",
-          image: manisha,
+          name: "Mr. Omkar Korgaonkar",
+          city: "Vengurla",
+          position: "Sindhudurg",
+          image: OmkarKorgaokkar,
         },
         {
           name: "Mr. Subhash Chandane",
-          position: "",
-          image: noimg,
+          city: "Ch.SambhajiNagar",
+          position: "Ch.SambhajiNagar",
+          image: SubhashChandane,
+        },
+        {
+          name: "Mr. Sushil Petkar",
+          city: "Ratnagiri",
+          position: "Ratnagiri",
+          image: SushilPetkar,
+        },
+        {
+          name: "Mr. Gajanan Chipkar",
+          city: "Mumbai",
+          position: "Mumbai+Thane+Raigad",
+          image: GajananChinkar,
+        },
+        {
+          name: "Mr. Gururaj Kulkarni",
+          city: "Solapur",
+          position: "Solapur",
+          image: GauravKulkarni,
+        },
+        {
+          name: "Mr. Swapnil Vernekar",
+          city: "Solapur",
+          position: "Solapur",
+          image: SwpnilVernekar,
+        },
+        {
+          name: "Mr. Shashikant Jamadar",
+          city: "Solapur",
+          position: "Solapur",
+          image: ShashikantJamdar,
+        },
+        {
+          name: "Mr. Sandip Desale",
+          city: "Nashik",
+          position: "Nashik",
+          image: SandipDesale,
+        },
+        {
+          name: "Mr. Gaurav Kapadnis",
+          city: "Nashik",
+          position: "Nashik",
+          image: GauravKapadnis,
+        },
+        {
+          name: "Mr. Rajendra Panchal",
+          city: "Pune",
+          position: "Pune",
+          image: RajendraPanchal,
+        },
+        {
+          name: "Mr. Ganesh Sutar",
+          city: "Pune",
+          position: "Pune",
+          image: GaneshSutar,
+        },
+        {
+          name: "Mr. Dhanajirao Ekal",
+          city: "Kolhapur",
+          position: "Kolhapur+Sangli",
+          image: DhanajiraoEkal,
+        },
+        {
+          name: "Mr. Dhairyashil Jadhav",
+          city: "Kolhapur",
+          position: "Kolhapur+Sangli",
+          image: Dhairyashiljadhav,
         },
       ],
     },
@@ -138,15 +143,11 @@ const ReligionalChap = () => {
     <section className="py-20 px-4 pt-40">
       <div className="container mx-auto max-w-7xl">
         {/* Main Header */}
-        <motion.div className="text-center mb-16">
+        <motion.div className="text-center mb-2">
           <h1 className="text-4xl md:text-5xl font-bold text-[#005aa8] mb-4">
             Directors
           </h1>
           <div className="w-24 h-1 bg-[#ed6605] rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Meet the dedicated professionals driving MASMA's mission forward
-            with expertise and commitment
-          </p>
         </motion.div>
 
         <div ref={ref} className="space-y-16">
@@ -184,6 +185,9 @@ const ReligionalChap = () => {
                       <h3 className="text-lg font-bold text-gray-800 mb-2">
                         {member.name}
                       </h3>
+                      <p className="text-[#005aa8] font-medium text-sm">
+                        {member.city}
+                      </p>
                       <p className="text-[#ed6605] font-medium text-sm">
                         {member.position}
                       </p>

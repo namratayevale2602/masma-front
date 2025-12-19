@@ -25,6 +25,7 @@ import Admin from "./pages/admin/Admin";
 import MembershipPlans from "./pages/member/MembershipPlans";
 import Visitors from "./pages/member/Visitors";
 import VisitorCard from "./pages/member/VisitorCard";
+import Gallary from "./pages/events/gallary";
 
 function App() {
   const router = createBrowserRouter(
@@ -39,6 +40,7 @@ function App() {
           <Route path="/ReligionalChap" element={<ReligionalChap />} />
           <Route path="/events" element={<Events />} />
           <Route path="/news" element={<News />} />
+          <Route path="/gallary" element={<Gallary />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/Circulars" element={<Circulars />} />

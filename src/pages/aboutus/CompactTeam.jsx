@@ -8,20 +8,23 @@ import {
   FaUserGraduate,
 } from "react-icons/fa";
 
-import chandramohan from "../../assets/apex-body/chandramohan.jpg";
-import mangal from "../../assets/apex-body/mangal.jpg";
-import pradeep from "../../assets/apex-body/Mr.-Pradeep-Kulkarni.jpg";
-import rajesh from "../../assets/apex-body/Mr.-Rajesh-Mutha.jpg";
-import mukund from "../../assets/apex-body/mukund.jpg";
-import nitin from "../../assets/apex-body/Nitin-Kulkarni.jpg";
-import rohan from "../../assets/apex-body/Rohan-Upasni.jpg";
-import samir from "../../assets/apex-body/samir.jpg";
-import sanjau from "../../assets/apex-body/sanjau-kulkanri.jpg";
-import sanjay from "../../assets/apex-body/sanjay-deshmukh.jpg";
-import shashikant from "../../assets/apex-body/shashikant.jpg";
-import suhas from "../../assets/apex-body/suhas-gjotikar.png";
-import sushil from "../../assets/apex-body/sushil-pungalia.jpg";
-import noimg from "../../assets/apex-body/no-img.png";
+import {
+  AmitKulkarni,
+  PradipKhade,
+  SahajMuta,
+  ChinmayKulkani,
+  ShashikantWakde,
+  ManishaBirbind,
+  BharteshDhooli,
+  RiyaMahajani,
+  VaibhaviKop,
+  NarendraPawar,
+  AtulHonole,
+  DyaneshDeshpande,
+  ShrinidhiN,
+  AkshayWakade,
+  SurajDoke,
+} from "../../assets/index";
 
 const CompactTeam = () => {
   const [ref, inView] = useInView({
@@ -32,161 +35,126 @@ const CompactTeam = () => {
   const teamCategories = [
     {
       id: 1,
-      title: "Leadership",
+      title: "Public Relations Committee",
       icon: <FaUserTie className="text-2xl" />,
       members: [
         {
-          name: "Mr. Shashikant Wakade",
+          name: "Mr. Amit Kulkarni",
+          city: "Nashik",
           position: "President",
-          image: shashikant,
+          image: AmitKulkarni,
         },
         {
-          name: "Mr. Mayur Pande",
-          position: "Secretory",
-          image: noimg,
+          name: "Mr. Pradip Khade",
+          city: "Kolhapur",
+          position: "Voice President",
+          image: PradipKhade,
         },
         {
-          name: "Mr. Samir Gandhi",
-          position: "Secretory",
-          image: samir,
+          name: "Mr. Sahaj Mutha",
+          city: "Pune",
+          position: "Secretary",
+          image: SahajMuta,
+        },
+        {
+          name: "Mr. Chinmay Kulkarni",
+          city: "Pune",
+          position: "Treasurer",
+          image: ChinmayKulkani,
+        },
+        {
+          name: "Mr. Shashikant Wakade",
+          city: "Pune",
+          position: "Imm. Past President",
+          image: ShashikantWakde,
+        },
+        {
+          name: "Mr. Manisha Barbind",
+          city: "Ch.SambhajiNagar",
+          position: "Director",
+          image: ManishaBirbind,
+        },
+        {
+          name: "Mr. Bhartesh Dhooli",
+          city: "Pune",
+          position: "Director",
+          image: BharteshDhooli,
         },
       ],
     },
     {
       id: 2,
-      title: "Trusty Members",
+      title: "Women Entrepreneur's Committee",
       icon: <FaUserShield className="text-2xl" />,
       members: [
         {
-          name: "",
-          position: "Trust Member",
-          image: noimg,
+          name: "Riya Mahajani",
+          city: "Pune",
+          position: "Committee head",
+          image: RiyaMahajani,
         },
         {
-          name: "",
-          position: "Trust Member",
-          image: noimg,
-        },
-        {
-          name: "",
-          position: "Trust Member",
-          image: noimg,
-        },
-        {
-          name: "",
-          position: "Trust Member",
-          image: noimg,
+          name: "Vaibhavi Kop",
+          city: "Kolhapur",
+          position: "Committee Member",
+          image: VaibhaviKop,
         },
       ],
     },
     {
       id: 3,
-      title: "Ex. Presidents & Founder Members",
+      title: "Legal Committee",
       icon: <FaCrown className="text-2xl" />,
       members: [
         {
-          name: "Mr. Wagh",
-          position: "Founder & Ex-President",
-          image: noimg,
-        },
-        {
-          name: "Mr. Sushil Pungalia",
-          position: "Ex-President",
-          image: sushil,
-        },
-        {
-          name: "Mr. Suhas Ghotikar",
-          position: "Founder Member",
-          image: suhas,
-        },
-        {
-          name: "Mr. Chandramohan Kaushal",
-          position: "Founder Member",
-          image: chandramohan,
-        },
-        {
-          name: "Mr. Mangal Akole",
-          position: "Founder Member",
-          image: mangal,
-        },
-        {
-          name: "Mr. Mukund Kamlakar",
-          position: "Founder Member",
-          image: mukund,
-        },
-        {
-          name: "Mr. Sanjay Deshmukh",
-          position: "Founder Member",
-          image: sanjau,
-        },
-        {
-          name: "Mr. Sanjay Kulkarni",
-          position: "Founder Member",
-          image: sanjay,
-        },
-        {
-          name: "Mr. Pradeep Kulkarni",
-          position: "Founder Member",
-          image: pradeep,
-        },
-        {
-          name: "Mr. Rajesh Mutha",
-          position: "Founder Member",
-          image: rajesh,
-        },
-        {
-          name: "Mr. Rohan Upasani",
-          position: "Founder Member",
-          image: rohan,
+          name: "Mr. Narendra Pawar",
+          city: "pune",
+          position: "Committee Head",
+          image: NarendraPawar,
         },
       ],
     },
     {
       id: 4,
-      title: "Board of Directors",
+      title: "Membership Committee",
       icon: <FaUsers className="text-2xl" />,
       members: [
         {
-          name: "Mr. Nitin Kulkarni",
-          position: "Director",
-          image: nitin,
+          name: "Mr. Atul Honole",
+          city: "Kolhapur",
+          position: "Committee Head",
+          image: AtulHonole,
         },
         {
-          name: "Mr. Vishal Kumbhardare",
-          position: "Director",
-          image: noimg,
-        },
-        {
-          name: "Mr.Pratik Pokharkar",
-          position: "Director",
-          image: noimg,
-        },
-        {
-          name: "Mr. Bharthesh Dhuli",
-          position: "Director",
-          image: noimg,
+          name: "Mr. Dnyanesh Deshpande",
+          city: "Nashik",
+          position: "Committee Member",
+          image: DyaneshDeshpande,
         },
       ],
     },
     {
       id: 5,
-      title: "Special Advisors",
+      title: "Young Entrepreneur's Committee",
       icon: <FaUserGraduate className="text-2xl" />,
       members: [
         {
-          name: "",
-          position: "Technical Advisor",
-          image: noimg,
+          name: "Mr. Shrinidhi N Kulkarni",
+          city: "Kolhapur",
+          position: "Committee Head",
+          image: ShrinidhiN,
         },
         {
-          name: "",
-          position: "Policy Advisor",
-          image: noimg,
+          name: "Mr. Akshay Wakade",
+          city: "Pune",
+          position: "Committee Member",
+          image: AkshayWakade,
         },
         {
-          name: "",
-          position: "Financial Advisor",
-          image: noimg,
+          name: "Mr. Suraj Doke",
+          city: "Solapur",
+          position: "Committee Member",
+          image: SurajDoke,
         },
       ],
     },
@@ -196,15 +164,11 @@ const CompactTeam = () => {
     <section className="py-20 px-4 pt-40">
       <div className="container mx-auto max-w-7xl">
         {/* Main Header */}
-        <motion.div className="text-center mb-16">
+        <motion.div className="text-center mb-2">
           <h1 className="text-4xl md:text-5xl font-bold text-[#005aa8] mb-4">
-            Our Team
+            Various Committees
           </h1>
           <div className="w-24 h-1 bg-[#ed6605] rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Meet the dedicated professionals driving MASMA's mission forward
-            with expertise and commitment
-          </p>
         </motion.div>
 
         <div ref={ref} className="space-y-16">
@@ -242,6 +206,9 @@ const CompactTeam = () => {
                       <h3 className="text-lg font-bold text-gray-800 mb-2">
                         {member.name}
                       </h3>
+                      <p className="text-[#ed6605] font-medium text-sm">
+                        {member.city}
+                      </p>
                       <p className="text-[#005aa8] font-medium text-sm">
                         {member.position}
                       </p>

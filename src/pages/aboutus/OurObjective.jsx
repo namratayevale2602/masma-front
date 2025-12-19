@@ -139,10 +139,16 @@ const OurObjective = () => {
     description:
       "To establish Maharashtra as the leading solar energy hub in India, driving sustainable development and energy independence through widespread adoption of solar technologies.",
     highlights: [
-      "Pioneering solar energy adoption across Maharashtra",
-      "Creating a sustainable and energy-independent future",
-      "Leading the solar revolution in India",
-      "Building a green energy ecosystem for generations to come",
+      "Make proper organisation structure and system for MASMA",
+      "Finical empowering to regional team",
+      "Solar thermal cell",
+      "Nothing else only business!!",
+      "Tender cell",
+      "Launching “Surya veer” yojan",
+      "Promote MASMA till end customer",
+      "Quarterly meeting",
+      "Regional activity like tech series, factory visit etc.",
+      "Training of members about quality.",
     ],
   };
 
@@ -153,24 +159,43 @@ const OurObjective = () => {
       "To unite, strengthen, and empower the solar industry in Maharashtra through collaboration, education, and advocacy while promoting ethical practices and sustainable growth.",
     points: [
       {
-        icon: <FaUsers />,
-        text: "Unite manufacturers, installers, and dealers across the solar value chain",
+        text: "MNRE & SECI central govt authorities.",
       },
       {
-        icon: <FaHandshake />,
-        text: "Foster collaboration with government agencies and financial institutions",
+        text: "MEDA Head office & Regional offices.",
       },
       {
-        icon: <FaGraduationCap />,
-        text: "Provide comprehensive training and skill development programs",
+        text: "MSEDCL Local & Regional offices.",
       },
       {
-        icon: <FaShieldAlt />,
-        text: "Promote ethical business practices and quality standards",
+        text: "Municipal Corporations.",
       },
       {
-        icon: <FaChartLine />,
-        text: "Drive policy advocacy for industry growth and development",
+        text: "MASMA membership above 500 Members PAN Maharashtra.",
+      },
+      {
+        text: "Recognition of MASMA activities by Central & State Authorities.",
+      },
+      {
+        text: "Active role of MASMA in making policy decisions with government authorities.",
+      },
+      {
+        text: "Formation of the task force to interact with MEDA & MSEDCL to have the easy implementation of Solar rooftop programmers.",
+      },
+      {
+        text: "MASMA’s own offices & infrastructure.",
+      },
+      {
+        text: "Interaction with Govt. Authorities for a favorable & reasonable subsidy policy for end users.",
+      },
+      {
+        text: "Provide knowledge, business, and employment.",
+      },
+      {
+        text: "Draft quality specifications as per government guidelines & quality standards.",
+      },
+      {
+        text: "To set benchmark prices for solar systems as per the MNRE guidelines.",
       },
     ],
   };
@@ -182,44 +207,27 @@ const OurObjective = () => {
       "Strategic objectives to achieve our vision and fulfill our mission through focused initiatives and measurable outcomes.",
     categories: [
       {
-        title: "Industry Development",
-        icon: <FaBuilding />,
-        goals: [
-          "Increase solar installation capacity by 50% in next 3 years",
-          "Establish 100+ new solar manufacturing units",
-          "Create 10,000+ green jobs in solar sector",
-          "Develop standardized quality certification system",
-        ],
+        title: "Strong advisor committee.",
       },
       {
-        title: "Education & Training",
-        icon: <FaGraduationCap />,
-        goals: [
-          "Train 5,000+ solar technicians and installers annually",
-          "Establish solar training centers in all districts",
-          "Launch certification programs for solar professionals",
-          "Conduct 100+ awareness workshops yearly",
-        ],
+        title: "Collaboration with other organisation",
       },
       {
-        title: "Policy & Advocacy",
-        icon: <FaBalanceScale />,
-        goals: [
-          "Influence favorable solar policies at state and national level",
-          "Secure increased subsidies and incentives for solar adoption",
-          "Streamline regulatory processes for faster project approvals",
-          "Establish single-window clearance system for solar projects",
-        ],
+        title: "Solve different policy issue.",
       },
       {
-        title: "Technology & Innovation",
-        icon: <FaLightbulb />,
-        goals: [
-          "Promote R&D in advanced solar technologies",
-          "Facilitate adoption of smart grid and storage solutions",
-          "Encourage innovation in solar product design",
-          "Support startups in solar technology development",
-        ],
+        title:
+          "Educate member’s for equal purchase price and controlling cost of BOM.",
+      },
+      {
+        title: "Educate member’s on manufacture’s warranty terms.",
+      },
+      {
+        title: "Masma help line desk with number",
+      },
+      {
+        title:
+          "Organizing and heading all India solar federation ( Federation of Renewable Association of India)",
       },
     ],
   };
@@ -350,7 +358,7 @@ const OurObjective = () => {
                 <FaRocket className="text-2xl" />
               </div>
               <h1 className="text-3xl md:text-5xl font-bold text-[#005aa8] mb-4">
-                MASMA Objectives & Mission
+                Objectives
               </h1>
               <div className="w-24 h-1 bg-[#ed6605] rounded-full mx-auto mb-6"></div>
               <p className="text-gray-600 text-lg">
