@@ -49,7 +49,7 @@ const Footer = () => {
           icon: <FaEnvelope />,
         },
         {
-          name: "Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
+          name: "The Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
           href: "#",
           icon: <FaMapMarkerAlt />,
         },
