@@ -1,3 +1,5 @@
+import masmaLogo from "./logo/masma.png";
+
 import AbhijitVichare from "./religional/AbhijitVichare.jpeg";
 import ArunSingavi from "./religional/ArunSingavi.jpeg";
 import OmkarKorgaokkar from "./religional/OmkarKorgaokkar.jpeg";
@@ -48,6 +50,7 @@ import expoBrochure14 from "./gallary/12.jpeg";
 import expoBrochure15 from "./gallary/13.jpeg";
 
 export {
+  masmaLogo,
   AbhijitVichare,
   ArunSingavi,
   OmkarKorgaokkar,

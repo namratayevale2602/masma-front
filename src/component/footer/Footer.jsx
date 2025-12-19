@@ -10,6 +10,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { masmaLogo } from "../../assets";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,11 +19,11 @@ const Footer = () => {
     {
       title: "Quick Links",
       links: [
-        { name: "Home", href: "#home" },
-        { name: "About Us", href: "#about" },
-        { name: "Services", href: "#services" },
-        { name: "Projects", href: "#projects" },
-        { name: "Contact", href: "#contact" },
+        { name: "Home", href: "/" },
+        { name: "About Us", href: "/about-us" },
+        { name: "FAQ", href: "/faq" },
+        { name: "Gallary", href: "/gallary" },
+        { name: "Contact", href: "/ContactUs" },
       ],
     },
     {
@@ -66,7 +67,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white md:rounded-tl-[12rem] rounded-tl-[10rem]">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {/* Company Info */}
           <motion.div
             className="text-center md:text-left"
@@ -76,10 +77,11 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex flex-col md:flex-row items-center space-x-0 md:space-x-2 mb-4">
-              <div className="w-10 h-10 bg-[#005aa8] rounded-full flex items-center justify-center mb-2 md:mb-0">
-                <FaSun className="text-white text-xl" />
-              </div>
-              <span className="text-2xl font-bold">SolarEnergy</span>
+              <img
+                src={masmaLogo}
+                alt="masma logo"
+                className="h-25 w-25 object-cover"
+              />
             </div>
             <p className="text-gray-300 mb-4 text-center md:text-left">
               Leading the way in sustainable energy solutions. We provide
@@ -154,7 +156,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="text-gray-300 text-sm mb-4 md:mb-0">
-            © {currentYear} SolarEnergy. All rights reserved.
+            © {currentYear} Masma. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
             <a

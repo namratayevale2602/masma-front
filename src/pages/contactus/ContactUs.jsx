@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   FaMapMarkerAlt,
   FaPhone,
@@ -11,9 +11,6 @@ import {
   FaLinkedin,
   FaInstagram,
   FaPaperPlane,
-  FaUser,
-  FaBuilding,
-  FaGlobe,
 } from "react-icons/fa";
 
 const ContactUs = () => {
@@ -22,38 +19,16 @@ const ContactUs = () => {
     threshold: 0.1,
   });
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [websiteConfig, setWebsiteConfig] = useState(null);
-  const [formFields, setFormFields] = useState([]);
-
-  // Fetch website configuration including form fields
-  useEffect(() => {
-    const fetchWebsiteConfig = async () => {
-      try {
-        const websiteDomain = "localhost:5173"; // Your website domain
-        const response = await fetch(
-          `https://email.demovoting.com/api/website-config/${websiteDomain}`
-        );
-        const config = await response.json();
-
-        setWebsiteConfig(config.website);
-        setFormFields(config.form_fields);
-
-        // Initialize form data with empty values
-        const initialFormData = {};
-        config.form_fields.forEach((field) => {
-          initialFormData[field.name] = "";
-        });
-        setFormData(initialFormData);
-      } catch (error) {
-        console.error("Error fetching website config:", error);
-      }
-    };
-
-    fetchWebsiteConfig();
-  }, []);
 
   const contactInfo = [
     {
@@ -92,104 +67,46 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!websiteConfig) {
-      setSubmitStatus({
-        type: "error",
-        message: "Website configuration not loaded. Please refresh the page.",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // Simulate API call delay
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    // Here you can add your actual form submission logic
+    // For example, using EmailJS, Formspree, or your own backend
+
     try {
-      const response = await fetch(
-        `https://email.demovoting.com/api/contact/${websiteConfig.domain}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      // This is where you would make your actual API call
+      // const response = await fetch('YOUR_API_ENDPOINT', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
 
-      const result = await response.json();
+      // For demo purposes, we'll simulate success
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you for your message! We'll get back to you soon.",
+      });
 
-      if (response.ok && result.success) {
-        setSubmitStatus({ type: "success", message: result.message });
-        // Reset form
-        const resetFormData = {};
-        formFields.forEach((field) => {
-          resetFormData[field.name] = "";
-        });
-        setFormData(resetFormData);
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message:
-            result.message || "Failed to send message. Please try again.",
-        });
-      }
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("Submission error:", error);
       setSubmitStatus({
         type: "error",
-        message: "Network error. Please check your connection and try again.",
+        message: "Something went wrong. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  // Render form field based on type
-  const renderFormField = (field) => {
-    const commonProps = {
-      name: field.name,
-      value: formData[field.name] || "",
-      onChange: handleInputChange,
-      required: field.required,
-      disabled: isSubmitting || !websiteConfig,
-      placeholder: field.placeholder || "",
-      className:
-        "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all",
-    };
-
-    switch (field.type) {
-      case "textarea":
-        return <textarea {...commonProps} rows="6" />;
-
-      case "select":
-        return (
-          <select {...commonProps}>
-            <option value="">Select {field.label}</option>
-            {field.options &&
-              Object.entries(field.options).map(([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-          </select>
-        );
-
-      case "checkbox":
-        return (
-          <input
-            type="checkbox"
-            {...commonProps}
-            checked={formData[field.name] || false}
-            onChange={(e) =>
-              setFormData({ ...formData, [field.name]: e.target.checked })
-            }
-            className="w-5 h-5 text-[#005aa8] rounded focus:ring-[#005aa8]"
-          />
-        );
-
-      default:
-        return <input type={field.type} {...commonProps} />;
     }
   };
 
@@ -285,46 +202,97 @@ const ContactUs = () => {
                 </motion.div>
               )}
 
-              {!websiteConfig && (
-                <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <p className="text-yellow-700">
-                    Loading form configuration...
-                  </p>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
-                {formFields
-                  .sort((a, b) => a.sort_order - b.sort_order)
-                  .map((field, index) => (
-                    <div
-                      key={field.name}
-                      className={
-                        field.type === "checkbox"
-                          ? "flex items-center space-x-3"
-                          : ""
-                      }
-                    >
-                      <label
-                        className={`block text-sm font-semibold text-gray-700 mb-2 ${
-                          field.type === "checkbox" ? "mb-0" : ""
-                        }`}
-                      >
-                        {field.label}{" "}
-                        {field.required && (
-                          <span className="text-red-500">*</span>
-                        )}
-                      </label>
-                      {renderFormField(field)}
-                    </div>
-                  ))}
+                {/* Name Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
+                    placeholder="Enter your full name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
+                  />
+                </div>
+
+                {/* Email and Phone Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      placeholder="Enter your email"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                      placeholder="Enter your phone number"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Subject Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Subject <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
+                    placeholder="What is this regarding?"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
+                    rows="6"
+                    placeholder="Type your message here..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
+                  />
+                </div>
 
                 <motion.button
                   type="submit"
-                  disabled={isSubmitting || !websiteConfig}
+                  disabled={isSubmitting}
                   className="w-full flex items-center justify-center space-x-3 py-4 bg-[#ed6605] text-white rounded-lg font-semibold text-lg hover:bg-[#d45a04] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   whileHover={{
-                    scale: isSubmitting || !websiteConfig ? 1 : 1.02,
+                    scale: isSubmitting ? 1 : 1.02,
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -332,11 +300,6 @@ const ContactUs = () => {
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                       <span>Sending...</span>
-                    </>
-                  ) : !websiteConfig ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Loading...</span>
                     </>
                   ) : (
                     <>
@@ -355,9 +318,11 @@ const ContactUs = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              {/* Regional Offices */}
+              {/* Map Section */}
               <div className="bg-white rounded-2xl p-6">
-                <h3 className="text-2xl font-bold text-[#005aa8] mb-4">Map</h3>
+                <h3 className="text-2xl font-bold text-[#005aa8] mb-4">
+                  Our Location
+                </h3>
                 <div className="space-y-4">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15137.237191498001!2d73.860219!3d18.469644000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8ab1109a25%3A0xb010aff5c75f1c92!2sMaharashtra%20Solar%20Manufacturers%20Association!5e0!3m2!1sen!2sin!4v1763985561571!5m2!1sen!2sin"
@@ -366,7 +331,11 @@ const ContactUs = () => {
                     style={{ border: 0, borderRadius: "8px" }}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    title="MASMA Location"
                   ></iframe>
+                  <p className="text-gray-600 text-sm">
+                    Visit our office for consultations and meetings.
+                  </p>
                 </div>
               </div>
 
@@ -382,24 +351,28 @@ const ContactUs = () => {
                     {
                       icon: <FaFacebook />,
                       label: "Facebook",
+                      color: "hover:bg-blue-600",
                     },
                     {
                       icon: <FaTwitter />,
                       label: "Twitter",
+                      color: "hover:bg-sky-500",
                     },
                     {
                       icon: <FaLinkedin />,
                       label: "LinkedIn",
+                      color: "hover:bg-blue-700",
                     },
                     {
                       icon: <FaInstagram />,
                       label: "Instagram",
+                      color: "hover:bg-pink-600",
                     },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
                       href="#"
-                      className={`w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-[#ed6605]`}
+                      className={`w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-[#ed6605] transition-colors`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       aria-label={social.label}
