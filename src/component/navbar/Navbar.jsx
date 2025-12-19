@@ -76,10 +76,10 @@ const Navbar = () => {
       icon: <FaImage />,
       href: "#aboutus",
       dropdown: [
-        { name: "Events", icon: <FaImage />, href: "/events" },
+        // { name: "Events", icon: <FaImage />, href: "/events" },
         { name: "Gallery", icon: <FaImage />, href: "/gallary" },
-        { name: "News", icon: <FaImage />, href: "/news" },
-        { name: "Videos", icon: <FaImage />, href: "/videos" },
+        // { name: "News", icon: <FaImage />, href: "/news" },
+        // { name: "Videos", icon: <FaImage />, href: "/videos" },
       ],
     },
     {
