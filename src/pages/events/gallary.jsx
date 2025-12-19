@@ -159,7 +159,7 @@ const Gallary = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold text-[#005aa8] mb-4">
-            Gallary
+            Gallery
           </h1>
           <div className="w-24 h-1 bg-[#ed6605] rounded-full mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">

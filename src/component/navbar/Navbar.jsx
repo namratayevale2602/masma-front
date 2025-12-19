@@ -77,7 +77,7 @@ const Navbar = () => {
       href: "#aboutus",
       dropdown: [
         { name: "Events", icon: <FaImage />, href: "/events" },
-        { name: "Gallary", icon: <FaImage />, href: "/gallary" },
+        { name: "Gallery", icon: <FaImage />, href: "/gallary" },
         { name: "News", icon: <FaImage />, href: "/news" },
         { name: "Videos", icon: <FaImage />, href: "/videos" },
       ],
