@@ -38,17 +38,17 @@ const Footer = () => {
       title: "Contact Info",
       links: [
         {
-          name: "+1 (555) 123-4567",
-          href: "tel:+15551234567",
+          name: "+91 93091 67947",
+          href: "tel:+91 93091 67947",
           icon: <FaPhone />,
         },
         {
-          name: "info@solarexample.com",
-          href: "mailto:info@solarexample.com",
+          name: "info@masma.com",
+          href: "mailto:info@masma.com",
           icon: <FaEnvelope />,
         },
         {
-          name: "123 Solar Street, Energy City",
+          name: "Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
           href: "#",
           icon: <FaMapMarkerAlt />,
         },

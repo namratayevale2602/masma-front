@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import dnyanada from "../../assets/associate/Dnyanada-Institute-Of-Flow-Piping-Technology.jpg";
+import giz from "../../assets/associate/giz.png";
+import globalindia from "../../assets/associate/gloobal-india.jpg";
+import mitt from "../../assets/associate/mitt.png";
+import PCERF from "../../assets/associate/PCERF.jpg";
+import ppcob from "../../assets/associate/Pune-peoples-co-operative-bank.jpg";
+import UzEnergyExpo from "../../assets/associate/UzEnergyExpo.jpg";
+import YESBank from "../../assets/associate/YES-Bank.png";
+
 const Associates = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -12,7 +21,7 @@ const Associates = () => {
       id: 1,
       name: "Dnyanada Institute of Flow Piping Technology",
       industry: "Solar Panel Manufacturing",
-      logo: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: dnyanada,
       description:
         "DIFPT was established in 2010 to provide Plumbing Technology Skill training course of short duration of only 60 days to school & college youths from rural area.",
     },
@@ -20,50 +29,50 @@ const Associates = () => {
       id: 2,
       name: "MIT",
       industry: "Solar Installation & Maintenance",
-      logo: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: mitt,
       description:
         "MIT World Peace University (MITWPU), Pune is one of the leading private institutions in India with a firm belief that the “Union of Science and Spirituality alone will bring peace to mankind”.",
     },
     {
       id: 3,
-      name: "EcoPower Innovations",
+      name: "Global India Business Forumy",
       industry: "Solar Technology R&D",
-      logo: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: globalindia,
       description: "Pioneering research in advanced solar technologies",
     },
     {
       id: 4,
-      name: "SunRise Solar",
+      name: "Pune Construction Engineering Research Foundation",
       industry: "Residential Solar Solutions",
-      logo: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: PCERF,
       description: "Affordable solar solutions for homes and communities",
     },
     {
       id: 5,
-      name: "PowerGrid Technologies",
+      name: "Gesellschaft Fur Internationale Zusammenarbeit (GIZ)",
       industry: "Commercial Solar Projects",
-      logo: "https://images.unsplash.com/photo-1562155618-e1a8bc2eb04f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: giz,
       description: "Large-scale solar projects for businesses and industries",
     },
     {
       id: 6,
-      name: "CleanEnergy Partners",
+      name: "UzEnergyExpo",
       industry: "Solar Component Suppliers",
-      logo: "https://images.unsplash.com/photo-1564059813745-b2c0c42dcd19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: UzEnergyExpo,
       description: "Quality components for solar system installations",
     },
     {
       id: 7,
-      name: "Sustainable Systems",
+      name: "YES Bank",
       industry: "Solar Water Heating",
-      logo: "https://images.unsplash.com/photo-1549399905-02da7514e9a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: YESBank,
       description: "Specialized in solar water heating solutions",
     },
     {
       id: 8,
-      name: "Renewable Resources",
+      name: "Pune peoples co operative bank",
       industry: "Solar Consulting & Advisory",
-      logo: "https://images.unsplash.com/photo-1575310279751-6864c08763db?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      logo: ppcob,
       description: "Expert consulting services for solar projects",
     },
   ];
@@ -106,11 +115,11 @@ const Associates = () => {
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
                 {/* Company Logo/Image */}
-                <div className="h-48 overflow-hidden bg-gray-100">
+                <div className="h-48 overflow-hidden">
                   <img
                     src={company.logo}
                     alt={company.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 

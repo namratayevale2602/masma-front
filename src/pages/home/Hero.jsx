@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import banner1 from "../../assets/masma/BANNER-1.png";
+import banner2 from "../../assets/masma/BANNER-2png.png";
+import banner3 from "../../assets/masma/BANNER-3png.png";
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const navigate = useNavigate();
 
-  const images = [
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-  ];
+  const handleAbout = () => {
+    navigate("/about-us"); // Redirect to /bemember
+  };
+  const handleLearnMore = () => {
+    navigate("/about-us"); // Redirect to /bemember
+  };
+
+  const images = [banner1, banner2, banner3];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,7 +37,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-screen overflow-hidden">
       {/* Background Images with Transition */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full md:w-full md:h-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImage}
@@ -43,7 +50,7 @@ const Hero = () => {
             <img
               src={images[currentImage]}
               alt={`Solar Panel ${currentImage + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full md:w-full md:h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/40" />
           </motion.div>
@@ -100,15 +107,17 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.button
+                onClick={handleAbout}
                 className="px-8 py-4 bg-[#ed6605] text-white rounded-lg font-semibold text-lg hover:bg-[#d45a04] transition-colors flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Get Free Quote</span>
+                <span>About Us</span>
                 <FaArrowRight />
               </motion.button>
 
               <motion.button
+                onClick={handleLearnMore}
                 className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import about from "../../assets/masma/about.png";
 
 const AboutUsCompact = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
+
+  const navigate = useNavigate();
+
+  const handleAbout = () => {
+    navigate("/about-us"); // Redirect to /bemember
+  };
 
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-gray-100 overflow-x-hidden">
@@ -21,7 +29,7 @@ const AboutUsCompact = () => {
           >
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                src={about}
                 alt="MASMA Association"
                 className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-cover rounded-2xl"
               />
@@ -100,6 +108,7 @@ const AboutUsCompact = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <motion.button
+                onClick={handleAbout}
                 className="flex items-center space-x-2 px-6 py-3 bg-[#ed6605] text-white rounded-lg font-semibold hover:bg-[#d45a04] transition-colors text-sm sm:text-base w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

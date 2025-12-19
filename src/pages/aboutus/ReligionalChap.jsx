@@ -8,6 +8,13 @@ import {
   FaUserGraduate,
 } from "react-icons/fa";
 
+import noimg from "../../assets/religional/noimg.png";
+import atul from "../../assets/religional/Atul-Honole.jpg";
+import manisha from "../../assets/religional/Manisha-Barbind.jpg";
+import narendra from "../../assets/religional/Narendra-Pawar.jpg";
+import vijay from "../../assets/religional/Vijay-Wani.jpg";
+import vinod from "../../assets/religional/Vinod-Suryavanshi.jpg";
+
 const ReligionalChap = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -21,28 +28,24 @@ const ReligionalChap = () => {
       icon: <FaUserTie className="text-2xl" />,
       members: [
         {
-          name: "Rajesh Sharma",
-          position: "President",
-          image:
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Vinod Suryavanshi",
+          position: "",
+          image: vinod,
         },
         {
-          name: "Priya Patel",
-          position: "Vice President",
-          image:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Pradeep Khade",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Amit Kumar",
-          position: "Secretary",
-          image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Atul Honole",
+          position: "",
+          image: atul,
         },
         {
-          name: "Sunita Reddy",
-          position: "Treasurer",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Ms. Vaibhavi Vivek Kop",
+          position: "",
+          image: noimg,
         },
       ],
     },
@@ -52,28 +55,14 @@ const ReligionalChap = () => {
       icon: <FaUserShield className="text-2xl" />,
       members: [
         {
-          name: "Vikram Singh",
-          position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Arun Singavi",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Neha Gupta",
-          position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Rahul Mehta",
-          position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Anjali Joshi",
-          position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Vijay Patil",
+          position: "",
+          image: noimg,
         },
       ],
     },
@@ -83,28 +72,14 @@ const ReligionalChap = () => {
       icon: <FaCrown className="text-2xl" />,
       members: [
         {
-          name: "Dr. Suresh Kapoor",
-          position: "Founder & Ex-President",
-          image:
-            "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Jagadish Hadap",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Mr. Ramesh Iyer",
-          position: "Ex-President",
-          image:
-            "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Mrs. Lata Desai",
-          position: "Founder Member",
-          image:
-            "https://images.unsplash.com/photo-1551836026-d5c88ac5c4e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Mr. Prakash Rao",
-          position: "Founder Member",
-          image:
-            "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Vijay Vani",
+          position: "",
+          image: vijay,
         },
       ],
     },
@@ -114,40 +89,29 @@ const ReligionalChap = () => {
       icon: <FaUsers className="text-2xl" />,
       members: [
         {
-          name: "Sanjay Malhotra",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Rajendra Panchal",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Meera Chatterjee",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Akshay Panchal",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Arun Verma",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Ashish Mule",
+          position: "",
+          image: noimg,
         },
         {
-          name: "Kavita Nair",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Narendra Pawar",
+          position: "",
+          image: narendra,
         },
         {
-          name: "Deepak Choudhary",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Pooja Mehta",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Sahaj Mutha",
+          position: "",
+          image: noimg,
         },
       ],
     },
@@ -157,22 +121,14 @@ const ReligionalChap = () => {
       icon: <FaUserGraduate className="text-2xl" />,
       members: [
         {
-          name: "Prof. Anil Deshmukh",
-          position: "Technical Advisor",
-          image:
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Ms. Manisha Barbind",
+          position: "",
+          image: manisha,
         },
         {
-          name: "Dr. Nandini Roy",
-          position: "Policy Advisor",
-          image:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Mr. Sameer Khan",
-          position: "Financial Advisor",
-          image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Subhash Chandane",
+          position: "",
+          image: noimg,
         },
       ],
     },

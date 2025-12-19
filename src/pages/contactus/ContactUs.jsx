@@ -60,20 +60,18 @@ const ContactUs = () => {
       icon: <FaMapMarkerAlt className="text-2xl" />,
       title: "Our Office",
       details: [
-        "MASMA Headquarters",
-        "Solar Energy Complex",
-        "Mumbai, Maharashtra - 400001",
+        "Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
       ],
     },
     {
       icon: <FaPhone className="text-2xl" />,
       title: "Phone Number",
-      details: ["+91 22 1234 5678", "+91 22 1234 5679"],
+      details: ["+91 93091 67947"],
     },
     {
       icon: <FaEnvelope className="text-2xl" />,
       title: "Email Address",
-      details: ["info@masma.org", "support@masma.org"],
+      details: ["info@masma.com", "support@masma.com"],
     },
     {
       icon: <FaClock className="text-2xl" />,

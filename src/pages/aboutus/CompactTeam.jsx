@@ -8,6 +8,21 @@ import {
   FaUserGraduate,
 } from "react-icons/fa";
 
+import chandramohan from "../../assets/apex-body/chandramohan.jpg";
+import mangal from "../../assets/apex-body/mangal.jpg";
+import pradeep from "../../assets/apex-body/Mr.-Pradeep-Kulkarni.jpg";
+import rajesh from "../../assets/apex-body/Mr.-Rajesh-Mutha.jpg";
+import mukund from "../../assets/apex-body/mukund.jpg";
+import nitin from "../../assets/apex-body/Nitin-Kulkarni.jpg";
+import rohan from "../../assets/apex-body/Rohan-Upasni.jpg";
+import samir from "../../assets/apex-body/samir.jpg";
+import sanjau from "../../assets/apex-body/sanjau-kulkanri.jpg";
+import sanjay from "../../assets/apex-body/sanjay-deshmukh.jpg";
+import shashikant from "../../assets/apex-body/shashikant.jpg";
+import suhas from "../../assets/apex-body/suhas-gjotikar.png";
+import sushil from "../../assets/apex-body/sushil-pungalia.jpg";
+import noimg from "../../assets/apex-body/no-img.png";
+
 const CompactTeam = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -21,28 +36,19 @@ const CompactTeam = () => {
       icon: <FaUserTie className="text-2xl" />,
       members: [
         {
-          name: "Rajesh Sharma",
+          name: "Mr. Shashikant Wakade",
           position: "President",
-          image:
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: shashikant,
         },
         {
-          name: "Priya Patel",
-          position: "Vice President",
-          image:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Mayur Pande",
+          position: "Secretory",
+          image: noimg,
         },
         {
-          name: "Amit Kumar",
-          position: "Secretary",
-          image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Sunita Reddy",
-          position: "Treasurer",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          name: "Mr. Samir Gandhi",
+          position: "Secretory",
+          image: samir,
         },
       ],
     },
@@ -52,28 +58,24 @@ const CompactTeam = () => {
       icon: <FaUserShield className="text-2xl" />,
       members: [
         {
-          name: "Vikram Singh",
+          name: "",
           position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Neha Gupta",
+          name: "",
           position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Rahul Mehta",
+          name: "",
           position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Anjali Joshi",
+          name: "",
           position: "Trust Member",
-          image:
-            "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
       ],
     },
@@ -83,28 +85,59 @@ const CompactTeam = () => {
       icon: <FaCrown className="text-2xl" />,
       members: [
         {
-          name: "Dr. Suresh Kapoor",
+          name: "Mr. Wagh",
           position: "Founder & Ex-President",
-          image:
-            "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Mr. Ramesh Iyer",
+          name: "Mr. Sushil Pungalia",
           position: "Ex-President",
-          image:
-            "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: sushil,
         },
         {
-          name: "Mrs. Lata Desai",
+          name: "Mr. Suhas Ghotikar",
           position: "Founder Member",
-          image:
-            "https://images.unsplash.com/photo-1551836026-d5c88ac5c4e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: suhas,
         },
         {
-          name: "Mr. Prakash Rao",
+          name: "Mr. Chandramohan Kaushal",
           position: "Founder Member",
-          image:
-            "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: chandramohan,
+        },
+        {
+          name: "Mr. Mangal Akole",
+          position: "Founder Member",
+          image: mangal,
+        },
+        {
+          name: "Mr. Mukund Kamlakar",
+          position: "Founder Member",
+          image: mukund,
+        },
+        {
+          name: "Mr. Sanjay Deshmukh",
+          position: "Founder Member",
+          image: sanjau,
+        },
+        {
+          name: "Mr. Sanjay Kulkarni",
+          position: "Founder Member",
+          image: sanjay,
+        },
+        {
+          name: "Mr. Pradeep Kulkarni",
+          position: "Founder Member",
+          image: pradeep,
+        },
+        {
+          name: "Mr. Rajesh Mutha",
+          position: "Founder Member",
+          image: rajesh,
+        },
+        {
+          name: "Mr. Rohan Upasani",
+          position: "Founder Member",
+          image: rohan,
         },
       ],
     },
@@ -114,40 +147,24 @@ const CompactTeam = () => {
       icon: <FaUsers className="text-2xl" />,
       members: [
         {
-          name: "Sanjay Malhotra",
+          name: "Mr. Nitin Kulkarni",
           position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: nitin,
         },
         {
-          name: "Meera Chatterjee",
+          name: "Mr. Vishal Kumbhardare",
           position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Arun Verma",
+          name: "Mr.Pratik Pokharkar",
           position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Kavita Nair",
+          name: "Mr. Bharthesh Dhuli",
           position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Deepak Choudhary",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        },
-        {
-          name: "Pooja Mehta",
-          position: "Director",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
       ],
     },
@@ -157,22 +174,19 @@ const CompactTeam = () => {
       icon: <FaUserGraduate className="text-2xl" />,
       members: [
         {
-          name: "Prof. Anil Deshmukh",
+          name: "",
           position: "Technical Advisor",
-          image:
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Dr. Nandini Roy",
+          name: "",
           position: "Policy Advisor",
-          image:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
         {
-          name: "Mr. Sameer Khan",
+          name: "",
           position: "Financial Advisor",
-          image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: noimg,
         },
       ],
     },

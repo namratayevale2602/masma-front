@@ -5,6 +5,7 @@ import Participent from "./Participent";
 import AboutUs from "./AboutUs";
 import CompnyLogo from "./CompnyLogo";
 import GetInTouch from "./GetInTouch";
+import BoardOfDirectors from "./BoardOfDirectors";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Stats />
       <Participent />
       <AboutUs />
+      <BoardOfDirectors />
       <GetInTouch />
       <CompnyLogo />
     </div>

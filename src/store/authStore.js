@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Create main API instance for registration
 const registrationApi = axios.create({
-  baseURL: "https://masma-back.demovoting.com/api/registration",
+  baseURL: "http://localhost:8000/api/registration",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -15,7 +15,7 @@ const registrationApi = axios.create({
 
 // Create CSRF-specific instance
 const csrfApi = axios.create({
-  baseURL: "https://masma-back.demovoting.com",
+  baseURL: "http://localhost:8000",
   withCredentials: true,
 });
 
@@ -35,6 +35,7 @@ registrationApi.interceptors.request.use(
 );
 
 // Enhanced response interceptor
+// Enhanced response interceptor - FIXED VERSION
 registrationApi.interceptors.response.use(
   (response) => {
     console.log("✅ Registration API Response Success:", {
@@ -52,7 +53,25 @@ registrationApi.interceptors.response.use(
       url: error.config?.url,
     });
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // Don't attempt token refresh for:
+    // 1. Login requests (when they fail)
+    // 2. Refresh endpoint itself
+    // 3. Flagged as login request
+    const isLoginEndpoint =
+      originalRequest.url === "/login" ||
+      originalRequest.url?.includes("/login");
+    const isRefreshEndpoint =
+      originalRequest.url === "/refresh" ||
+      originalRequest.url?.includes("/refresh");
+    const isLoginRequest = originalRequest._isLoginRequest;
+
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !isLoginEndpoint &&
+      !isRefreshEndpoint &&
+      !isLoginRequest
+    ) {
       console.log("🔄 Registration: Attempting token refresh...");
       originalRequest._retry = true;
 
@@ -106,7 +125,16 @@ const useRegistrationAuthStore = create(
             throw new Error("CSRF initialization failed");
           }
 
-          const response = await registrationApi.post("/login", credentials);
+          // Create a custom config to identify this as a login request
+          const config = {
+            _isLoginRequest: true, // Add custom flag for interceptor
+          };
+
+          const response = await registrationApi.post(
+            "/login",
+            credentials,
+            config
+          );
 
           set({
             user: response.data.user,

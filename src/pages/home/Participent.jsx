@@ -1,86 +1,155 @@
 import { useState, useEffect, useRef } from "react";
 
+import img1 from "../../assets/masma/img-12.jpg";
+import img2 from "../../assets/masma/img-13.jpg";
+import img3 from "../../assets/masma/img-14.jpg";
+import img4 from "../../assets/masma/img-15.jpg";
+import img5 from "../../assets/masma/img-16.jpg";
+import img6 from "../../assets/masma/img-17.jpg";
+import img7 from "../../assets/masma/img-18.jpg";
+import img8 from "../../assets/masma/img-19.jpg";
+import img9 from "../../assets/masma/img-20.jpg";
+import img10 from "../../assets/masma/img-48.jpg";
+import img11 from "../../assets/masma/img-49.jpg";
+import img12 from "../../assets/masma/img-50.jpg";
+import img13 from "../../assets/masma/img-51.jpg";
+import img14 from "../../assets/masma/img-52.jpg";
+import img15 from "../../assets/masma/img-53.jpg";
+import img16 from "../../assets/masma/img-54.jpg";
+import img17 from "../../assets/masma/img-55.jpg";
+import img18 from "../../assets/masma/img-56.jpg";
+import img19 from "../../assets/masma/img-57.jpg";
+
 const Participent = () => {
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainer1Ref = useRef(null);
   const scrollContainer2Ref = useRef(null);
 
-  // Solar-related images from Unsplash
-  const solarCards = [
+  // First row images - larger height
+  const row1Cards = [
     {
       id: 1,
-      image:
-        "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Residential Solar",
-      description: "Home solar solutions",
+      image: img1,
+      title: "Solar Expo 2023",
+      description: "Annual renewable energy exhibition",
     },
     {
       id: 2,
-      image:
-        "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Commercial Projects",
-      description: "Business solar installations",
+      image: img2,
+      title: "Industry Conference",
+      description: "Knowledge sharing sessions",
     },
     {
       id: 3,
-      image:
-        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Solar Farms",
-      description: "Large scale energy production",
+      image: img3,
+      title: "Networking Event",
+      description: "Industry professionals gathering",
     },
     {
       id: 4,
-      image:
-        "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Roof Top Solar",
-      description: "Efficient space utilization",
+      image: img4,
+      title: "Product Launch",
+      description: "New solar innovations",
     },
     {
       id: 5,
-      image:
-        "https://images.unsplash.com/photo-1562155618-e1a8bc2eb04f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Industrial Solar",
-      description: "Factory power solutions",
+      image: img5,
+      title: "Technical Workshop",
+      description: "Hands-on training sessions",
     },
     {
       id: 6,
-      image:
-        "https://images.unsplash.com/photo-1564059813745-b2c0c42dcd19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Solar Panels",
-      description: "High efficiency technology",
+      image: img6,
+      title: "Panel Discussion",
+      description: "Expert insights forum",
     },
     {
       id: 7,
-      image:
-        "https://images.unsplash.com/photo-1549399905-02da7514e9a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Monitoring Systems",
-      description: "Real-time performance tracking",
+      image: img7,
+      title: "Award Ceremony",
+      description: "Recognizing excellence",
     },
     {
       id: 8,
-      image:
-        "https://images.unsplash.com/photo-1575310279751-6864c08763db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Maintenance",
-      description: "Professional service & care",
+      image: img8,
+      title: "Exhibition Hall",
+      description: "Vendor stalls display",
     },
     {
       id: 9,
-      image:
-        "https://images.unsplash.com/photo-1621372040061-6ce0a937763d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Solar Innovation",
-      description: "Cutting edge technology",
+      image: img9,
+      title: "Keynote Speech",
+      description: "Industry leaders address",
     },
+  ];
+
+  // Second row images - different images
+  const row2Cards = [
     {
       id: 10,
-      image:
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      title: "Green Energy",
-      description: "Sustainable power solutions",
+      image: img10,
+      title: "Installation Demo",
+      description: "Live setup demonstration",
+    },
+    {
+      id: 11,
+      image: img11,
+      title: "Exhibitor Booth",
+      description: "Company presentations",
+    },
+    {
+      id: 12,
+      image: img12,
+      title: "Sponsor Showcase",
+      description: "Partner exhibits",
+    },
+    {
+      id: 13,
+      image: img13,
+      title: "Attendees Networking",
+      description: "Business connections",
+    },
+    {
+      id: 14,
+      image: img14,
+      title: "Media Coverage",
+      description: "Press and interviews",
+    },
+    {
+      id: 15,
+      image: img15,
+      title: "Registration Desk",
+      description: "Participant check-in",
+    },
+    {
+      id: 16,
+      image: img16,
+      title: "Interactive Session",
+      description: "Audience engagement",
+    },
+    {
+      id: 17,
+      image: img17,
+      title: "Catering Area",
+      description: "Refreshments break",
+    },
+    {
+      id: 18,
+      image: img18,
+      title: "Closing Ceremony",
+      description: "Event conclusion",
+    },
+    {
+      id: 19,
+      image: img19,
+      title: "Closing Ceremony",
+      description: "Event conclusion",
     },
   ];
 
   // Duplicate cards for seamless looping
-  const duplicatedCards = [...solarCards, ...solarCards, ...solarCards];
+  const duplicatedRow1Cards = [...row1Cards, ...row1Cards, ...row1Cards];
+  const duplicatedRow2Cards = [...row2Cards, ...row2Cards, ...row2Cards];
 
   useEffect(() => {
     if (isPaused) return;
@@ -113,72 +182,105 @@ const Participent = () => {
   }, [isPaused]);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto">
+    <section className="py-16 bg-linear-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#005aa8] mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#005aa8] mb-4">
             MASMA EXPO PARTICIPANTS
           </h2>
-          <p className="text-xl text-[#ed6605] max-w-2xl mx-auto">
-            Explore our comprehensive range of solar energy services and
-            installations
+          <div className="w-24 h-1 bg-[#ed6605] rounded-full mx-auto mb-6"></div>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Showcasing our annual solar energy exhibition, networking events,
+            and industry collaborations
           </p>
         </div>
 
-        {/* First Row - Left to Right Scroll */}
+        {/* First Row - Left to Right Scroll (Increased Height) */}
         <div className="mb-8">
           <div
             ref={scrollContainer1Ref}
-            className="flex overflow-x-hidden space-x-6 py-4 scrollbar-hide"
+            className="flex overflow-x-hidden space-x-6 py-6 scrollbar-hide"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
           >
-            {duplicatedCards.map((card, index) => (
+            {duplicatedRow1Cards.map((card, index) => (
               <div
                 key={`row1-${card.id}-${index}`}
-                className="shrink-0 w-80 transform hover:scale-105 transition-transform duration-300"
+                className="shrink-0 w-40 md:w-80 lg:w-60 "
               >
-                <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
-                  <div className="h-48 overflow-hidden">
+                <div className="overflow-hidden ">
+                  <div className="h-64 md:h-72 lg:h-100 overflow-hidden">
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain"
                     />
                   </div>
+                  {/* <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-1">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{card.description}</p>
+                  </div> */}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Second Row - Right to Left Scroll */}
+        {/* Second Row - Right to Left Scroll (Different Images) */}
         <div>
           <div
             ref={scrollContainer2Ref}
-            className="flex overflow-x-hidden space-x-6 py-4 scrollbar-hide"
+            className="flex overflow-x-hidden space-x-6 py-6 scrollbar-hide"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
           >
-            {duplicatedCards.map((card, index) => (
+            {duplicatedRow2Cards.map((card, index) => (
               <div
                 key={`row2-${card.id}-${index}`}
-                className="shrink-0 w-80 transform hover:scale-105 transition-transform duration-300"
+                className="shrink-0 w-72 md:w-80 lg:w-70"
               >
-                <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
-                  <div className="h-48 overflow-hidden">
+                <div className=" overflow-hidden   ">
+                  <div className="h-56 md:h-64 overflow-hidden">
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain"
                     />
                   </div>
+                  {/* <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-1">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{card.description}</p>
+                  </div> */}
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Pause/Play Indicator */}
+        {/* <div className="text-center mt-8">
+          <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md">
+            <div
+              className={`w-3 h-3 rounded-full ${
+                isPaused ? "bg-green-500" : "bg-yellow-500"
+              } animate-pulse`}
+            ></div>
+            <span className="text-sm text-gray-600">
+              {isPaused
+                ? "Scroll paused (hover to pause)"
+                : "Auto-scrolling..."}
+            </span>
+          </div>
+        </div> */}
       </div>
 
       {/* Custom CSS for hiding scrollbar */}
