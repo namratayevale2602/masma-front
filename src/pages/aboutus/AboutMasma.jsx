@@ -74,13 +74,14 @@ const AboutMasma = () => {
                 </p> */}
 
                 <p className="text-gray-700 leading-relaxed text-justify text-sm sm:text-base">
-                  I'm proud of MASMA successes over years, particularly in
-                  providing more opportunities for our members. In the year
-                  ahead, we will continue these initiatives, as well as adding
-                  furthermore training and awareness to promote solar energy,
-                  aligning the interests of both solar promoters and consumers
-                  to harness maximum solar energy and events held in
-                  collaboration with other organizations and regional chapters.
+                  I'm proud of The Maharashtra Solar Manufacturers Association
+                  MASMA successes over years, particularly in providing more
+                  opportunities for our members. In the year ahead, we will
+                  continue these initiatives, as well as adding furthermore
+                  training and awareness to promote solar energy, aligning the
+                  interests of both solar promoters and consumers to harness
+                  maximum solar energy and events held in collaboration with
+                  other organizations and regional chapters.
                 </p>
 
                 <p className="text-gray-700 leading-relaxed text-justify text-sm sm:text-base">
