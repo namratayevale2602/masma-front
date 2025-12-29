@@ -56,15 +56,13 @@ const BeMember = () => {
   ];
 
   const registrationTypes = [
-    { type: "renew_epc_classic", amount: "1000" },
-    { type: "student", amount: "500" },
+    { type: "renew_epc_classic", amount: "3750" },
+    { type: "student", amount: "1000" },
     { type: "installer", amount: "1500" },
-    { type: "epc_classic", amount: "2000" },
-    { type: "epc_lifetime", amount: "5000" },
-    { type: "dealer_distributor", amount: "3000" },
-    { type: "silver_corporate", amount: "4000" },
-    { type: "gold_corporate", amount: "6000" },
-    { type: "masma_associates", amount: "2500" },
+    { type: "epc_classic", amount: "4250" },
+    { type: "dealer_distributor", amount: "5500" },
+    { type: "silver_corporate", amount: "10500" },
+    { type: "gold_corporate", amount: "20500" },
   ];
 
   const getDisplayName = (value, type) => {
