@@ -49,6 +49,13 @@ import expoBrochure13 from "./gallary/11.jpeg";
 import expoBrochure14 from "./gallary/12.jpeg";
 import expoBrochure15 from "./gallary/13.jpeg";
 
+import banner1 from "./banner1.jpeg";
+import banner2 from "./banner2.jpeg";
+import banner3 from "./banner3.jpeg";
+import banner4 from "./banner.jpg";
+import banner5 from "./banner4.jpg";
+import banner6 from "./banner5.jpg";
+
 export {
   masmaLogo,
   AbhijitVichare,
@@ -97,4 +104,10 @@ export {
   expoBrochure13,
   expoBrochure14,
   expoBrochure15,
+  banner1,
+  banner2,
+  banner3,
+  banner4,
+  banner5,
+  banner6,
 };

@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import banner1 from "../../assets/masma/BANNER-1.png";
-import banner2 from "../../assets/masma/BANNER-2png.png";
-import banner3 from "../../assets/masma/BANNER-3png.png";
+import {
+  banner1,
+  banner2,
+  banner3,
+  banner4,
+  banner5,
+  banner6,
+} from "../../assets/index";
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -17,7 +22,7 @@ const Hero = () => {
     navigate("/about-us"); // Redirect to /bemember
   };
 
-  const images = [banner1, banner2, banner3];
+  const images = [banner4, banner5, banner6];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,9 +55,9 @@ const Hero = () => {
             <img
               src={images[currentImage]}
               alt={`Solar Panel ${currentImage + 1}`}
-              className="w-full h-full md:w-full md:h-full object-cover"
+              className="w-full h-full md:w-full md:h-screen object-cover mt-22"
             />
-            <div className="absolute inset-0 bg-black/40" />
+            {/* <div className="absolute inset-0 bg-black/40" /> */}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -78,7 +83,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* <div className="absolute inset-0 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -126,7 +131,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       {/* Image Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">

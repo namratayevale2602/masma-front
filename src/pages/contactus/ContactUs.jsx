@@ -29,6 +29,11 @@ const ContactUs = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
   const contactInfo = [
     {
@@ -285,6 +290,20 @@ const ContactUs = () => {
                     placeholder="Type your message here..."
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005aa8] focus:border-transparent transition-all"
                   />
+                </div>
+
+                <div>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={handleCheckboxChange}
+                      className="mr-1"
+                    />
+                    By clicking this, you agree to disclose your personal
+                    information to Masma for contacting you via SMS, Email, RCS
+                    Messages, Calls and WhatsApp.
+                  </label>
                 </div>
 
                 <motion.button
