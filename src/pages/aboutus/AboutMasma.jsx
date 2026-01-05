@@ -74,7 +74,7 @@ const AboutMasma = () => {
                 </p> */}
 
                 <p className="text-gray-700 leading-relaxed text-justify text-sm sm:text-base">
-                  I'm proud of The Maharashtra Solar Manufacturers Association
+                  I'm Proud of THE MAHARASHTRA SOLAR MANUFACTURES ASSOCIATION
                   MASMA successes over years, particularly in providing more
                   opportunities for our members. In the year ahead, we will
                   continue these initiatives, as well as adding furthermore

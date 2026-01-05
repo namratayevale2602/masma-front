@@ -26,6 +26,8 @@ import MembershipPlans from "./pages/member/MembershipPlans";
 import Visitors from "./pages/member/Visitors";
 import VisitorCard from "./pages/member/VisitorCard";
 import Gallary from "./pages/events/gallary";
+import PrivacyPolicy from "./pages/Privacy";
+import TermsAndConditions from "./pages/TermCondition";
 
 function App() {
   const router = createBrowserRouter(
@@ -51,6 +53,8 @@ function App() {
           <Route path="/visitor/:id/card" element={<VisitorCard />} />
           {/* Login should be public */}
           <Route path="/login" element={<Login />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/term&condition" element={<TermsAndConditions />} />
         </Route>
 
         {/* Protected Routes */}

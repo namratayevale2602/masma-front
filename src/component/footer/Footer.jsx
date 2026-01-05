@@ -44,12 +44,12 @@ const Footer = () => {
           icon: <FaPhone />,
         },
         {
-          name: "info@masma.com",
-          href: "mailto:info@masma.com",
+          name: "info@masma.in",
+          href: "mailto:info@masma.in",
           icon: <FaEnvelope />,
         },
         {
-          name: "The Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
+          name: "THE MAHARASHTRA SOLAR MANUFACTURES ASSOCIATION D-93, 4th Floor,Office No.93, G-Wing, S.No. 19A/3B,Pune - Satara Rd, KK Market, Ahilya devi chowk Dhankawadi, Pune, Maharashtra 411043",
           href: "#",
           icon: <FaMapMarkerAlt />,
         },
@@ -160,13 +160,13 @@ const Footer = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
             <a
-              href="#"
+              href="/privacy-policy"
               className="text-gray-300 hover:text-[#ed6605] transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="#"
+              href="/term&condition"
               className="text-gray-300 hover:text-[#ed6605] transition-colors"
             >
               Terms of Service

@@ -40,7 +40,7 @@ const ContactUs = () => {
       icon: <FaMapMarkerAlt className="text-2xl" />,
       title: "Our Office",
       details: [
-        "Maharashtra Solar Manufacturers Association D-93, 4th Floor, Pune - Satara Rd, KK Market, Dhankawadi, Pune, Maharashtra 411043",
+        "THE MAHARASHTRA SOLAR MANUFACTURES ASSOCIATION D-93, 4th Floor,Office No.93, G-Wing, S.No. 19A/3B,Pune - Satara Rd, KK Market, Ahilya devi chowk Dhankawadi, Pune, Maharashtra 411043",
       ],
     },
     {
@@ -51,7 +51,7 @@ const ContactUs = () => {
     {
       icon: <FaEnvelope className="text-2xl" />,
       title: "Email Address",
-      details: ["info@masma.com", "support@masma.com"],
+      details: ["info@masma.in"],
     },
     {
       icon: <FaClock className="text-2xl" />,
