@@ -35,7 +35,7 @@ const Stats = () => {
       <div className="container mx-auto">
         <div
           ref={ref}
-          className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-50 max-w-6xl mx-auto"
+          className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-50 max-w-6xl mx-auto"
         >
           {stats.map((stat, index) => (
             <StatItemWithIcon
@@ -85,15 +85,15 @@ const StatItemWithIcon = ({ stat, index, inView }) => {
       transition={{ duration: 0.8, delay: index * 0.3 }}
     >
       {/* Icon Container */}
-      <motion.div className="inline-flex items-center justify-center w-15 h-15 rounded-2xl bg-white mb-6">
-        <div className="text-3xl text-[#005aa8] transition-colors duration-300">
+      <motion.div className="inline-flex items-center justify-center w-15 h-15 rounded-2xl bg-white">
+        <div className="text-2xl text-[#005aa8] transition-colors duration-300">
           {stat.icon}
         </div>
       </motion.div>
 
       {/* Main Number */}
       <motion.div
-        className="text-3xl md:text-5xl lg:text-5xl font-black mb-4 tracking-tight"
+        className="text-2xl md:text-5xl lg:text-5xl font-black tracking-tight"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={inView ? { scale: 1, opacity: 1 } : {}}
         transition={{
@@ -110,7 +110,7 @@ const StatItemWithIcon = ({ stat, index, inView }) => {
 
       {/* Label */}
       <motion.h3
-        className="text-xl md:text-1xl font-semibold text-gray-800 tracking-wide uppercase mb-2"
+        className=" md:text-1xl font-semibold text-gray-800 tracking-wide uppercase mb-2"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: index * 0.3 + 0.6 }}

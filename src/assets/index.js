@@ -55,6 +55,9 @@ import banner3 from "./banner3.jpeg";
 import banner4 from "./banner.jpg";
 import banner5 from "./banner4.jpg";
 import banner6 from "./banner5.jpg";
+import mobile from "./mobilebanner.jpeg";
+import mobile2 from "./mobilebanner2.jpeg";
+import mobile1 from "./mobilebanner1.jpeg";
 
 export {
   masmaLogo,
@@ -110,4 +113,7 @@ export {
   banner4,
   banner5,
   banner6,
+  mobile,
+  mobile1,
+  mobile2,
 };
