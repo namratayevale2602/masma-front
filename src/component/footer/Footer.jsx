@@ -50,7 +50,7 @@ const Footer = () => {
         },
         {
           name: "THE MAHARASHTRA SOLAR MANUFACTURES ASSOCIATION D-93, 4th Floor,Office No.93, G-Wing, S.No. 19A/3B,Pune - Satara Rd, KK Market, Ahilya devi chowk Dhankawadi, Pune, Maharashtra 411043",
-          href: "#",
+          href: "https://maps.app.goo.gl/dRhyDTBvTdTtRYmx8",
           icon: <FaMapMarkerAlt />,
         },
       ],
@@ -93,6 +93,7 @@ const Footer = () => {
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
                   className="w-10 h-10 bg-[#005aa8] rounded-full flex items-center justify-center hover:bg-[#ed6605] transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
