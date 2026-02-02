@@ -24,16 +24,16 @@ const CTACards = () => {
       icon: <FaUsers />,
       color: accentColor,
       stats: "15,000+ Visitors",
-      link: "https://masmaexpo.in/visitor",
+      link: "https://vms.ruha.co.in/registration/masma-visitor",
     },
     {
-      title: "Delegates",
+      title: "Member",
       description:
-        "Join as industry delegate for exclusive access to conferences and roundtables",
+        "Join as member for exclusive access to conferences and roundtables",
       icon: <FaUserTie />,
       color: secondaryColor,
       stats: "200+ Speakers",
-      link: "https://masmaexpo.in/visitor",
+      link: "/bemember",
     },
   ];
 

@@ -57,7 +57,7 @@ const HeroSection = () => {
 
   const prevSlide = () => {
     setCurrentSlide(
-      (prev) => (prev - 1 + heroImages.length) % heroImages.length
+      (prev) => (prev - 1 + heroImages.length) % heroImages.length,
     );
   };
 
